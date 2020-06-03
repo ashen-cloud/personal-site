@@ -1,0 +1,47 @@
+<html>
+  <body>
+    <link rel="stylesheet" href="/style.css">
+
+    <div class=main>
+      <div class=main_title>
+        <span>
+          MY NAME
+        </span>
+      </div>
+
+      <div class=links>
+        <link1>
+          LINK1
+        </link1>
+        &nbsp;
+        <link2>
+          LINK2
+        </link2>
+        &nbsp;
+        <link3>
+          LINK3
+        </link2>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="centered">
+        <h2>LOREM IPSUM</h2>
+        <p>Some text.</p>
+      </div>
+    </div>
+
+    <div class="posttitle">
+      TITLE&nbsp;
+    </div>
+
+    <div class="posts">
+      <ul>
+        <% posts.forEach(x => { %>
+          <li><a href=/post/<%= x %>><%= formatName(x) %></a></li>
+        <% }); %>
+      </ul>
+    </div>
+
+  </body>
+<html>

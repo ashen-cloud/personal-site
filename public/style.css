@@ -1,0 +1,49 @@
+body {
+  background-color: black;
+}
+
+.links {
+  color: cyan;
+  justify-content: center;
+  display: flex;
+  font-size: 50;
+  background-color: blue;
+}
+
+.main_title span {
+  color: cyan;
+  background-color: green;
+  font-size: 60;
+  display: flex;
+  justify-content: center;
+}
+
+.posttitle {
+  font-size: 25;
+  bottom: 80px;
+  display: flex;
+  position: relative;
+  justify-content: right;
+  color: cyan;
+}
+
+.info {
+  padding-top: 100px;
+  left: 0;
+  color: cyan;
+}
+
+.posts {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 300;
+  overflow-x: hidden;
+  padding-top: 20px;
+  color: cyan;
+  right: 0;
+  background-color: grey;
+  font-size: 25;
+  display: flex;
+}
