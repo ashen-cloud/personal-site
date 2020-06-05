@@ -1,21 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
 body {
-  background-color: black;
+  background-color: #040310;
 }
 
 .links {
-  color: cyan;
   justify-content: center;
   display: flex;
-  font-size: 50;
-  background-color: blue;
+  font-size: 1.5em;
+  background-color: #2196f3;
+  font-family: 'Open Sans', sans-serif;
+  padding: 20px 0;
+}
+
+.links > a {
+  color: #eee;
+  margin: 0 20px;
+  position: relative;
+}
+
+.links > a::before {
+  position: absolute;
+  content: '';
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #eee;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.links > a:hover::before {
+  width: 100%;
 }
 
 .main_title span {
-  color: cyan;
-  background-color: green;
-  font-size: 60;
+  color: #fff;
+  background-color: #0d47a1;
+  font-size: 2em;
+  padding: 20px;
   display: flex;
   justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 5px;
 }
 
 .posttitle {
@@ -34,16 +75,48 @@ body {
 }
 
 .posts {
-  height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  top: 300;
-  overflow-x: hidden;
-  padding-top: 20px;
-  color: cyan;
-  right: 0;
-  background-color: grey;
-  font-size: 25;
-  display: flex;
+  width: 600px;
+  margin: 40px auto;
+  font-family: 'Open Sans', sans-serif;
 }
+
+.posts-item {
+  color: #eee;
+  background: #0a0724;
+  margin-bottom: 20px;
+  height: 40px;
+}
+
+.posts-item > a {
+  color: #eee;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 10px 20px;
+}
+
+.posts-item > a::before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  background: #ff6f00;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.posts-item > a:hover::before {
+  height: 100%;
+}
+
+.posts-item > a > p {
+  position: absolute;
+  z-index: 3;
+}
+
+/* ========= POST PAGE ======== */

@@ -5,23 +5,31 @@
     <div class=main>
       <div class=main_title>
         <span>
-          MY NAME
+          Serendipitypwnz
         </span>
       </div>
 
       <div class=links>
-        <link1>
-          LINK1
-        </link1>
+        <a href="#">
+          link 1
+        </a>
         &nbsp;
-        <link2>
-          LINK2
-        </link2>
+        <a href="#">
+          link 2
+        </a>
         &nbsp;
-        <link3>
-          LINK3
-        </link2>
+        <a href="#">
+          link 3
+        </a>
       </div>
+    </div>
+
+    <div class="posts">
+      <ul>
+        <% posts.forEach(x => { %>
+          <li class="posts-item"><a href=/post/<%= x %>><p><%= formatName(x) %></p></a></li>
+        <% }); %>
+      </ul>
     </div>
 
     <div class="info">
@@ -33,14 +41,6 @@
 
     <div class="posttitle">
       TITLE&nbsp;
-    </div>
-
-    <div class="posts">
-      <ul>
-        <% posts.forEach(x => { %>
-          <li><a href=/post/<%= x %>><%= formatName(x) %></a></li>
-        <% }); %>
-      </ul>
     </div>
 
   </body>
