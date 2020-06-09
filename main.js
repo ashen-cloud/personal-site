@@ -29,5 +29,6 @@ for (const post of posts) {
   })
 }
 
-app.listen(8080);
-console.log('Working on port 8080');
+const port = 80;
+app.listen(port);
+console.log(`Working on port ${port}`);

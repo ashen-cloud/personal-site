@@ -1,4 +1,4 @@
-const fs = require('fs-extra')
+const fs = require('fs')
 
 function formatName(name) {
   name = name.slice(0, name.indexOf(".")).replace(
