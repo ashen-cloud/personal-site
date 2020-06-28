@@ -5,24 +5,18 @@
     <div class=main>
       <div class=main_title>
         <span>
-          NAME
+          <%= fills.name %>
         </span>
       </div>
 
       <div class=links>
-        <a href="#">
-          link 1
+        <% fills.links.forEach(l => { %>
+          <a href="<%= l[1] %>">
+          <%= l[0] %>
         </a>
         &nbsp;
-        <a href="#">
-          link 2
-        </a>
-        &nbsp;
-        <a href="#">
-          link 3
-        </a>
+        <% }); %>
       </div>
-    </div>
 
     <div class="posts">
       <ul>
@@ -34,8 +28,8 @@
 
     <div class="info">
       <div class="centered">
-        <h2>LOREM IPSUM</h2>
-        <p>Some text.</p>
+        <h2><%= fills.title %></h2>
+        <p><%= fills.description %></p>
       </div>
     </div>
 

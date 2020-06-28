@@ -1,5 +1,5 @@
 const express = require('express');
-const { getPosts, formatName, getData } = require('./post_loader');
+const { getPosts, formatName, getData, getFills } = require('./loader');
 
 const app = express();
 
@@ -7,21 +7,24 @@ const postFolder = "./public/posts";
 
 const posts = getPosts(postFolder);
 
+const fills = getFills('./data.json');
+
 // app.use(express.static(__dirname + '/public'));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.render('main.ejs', {
     title: "My site",
     posts,
-    formatName
+    formatName,
+    fills
   });
 });
 
 for (const post of posts) {
-  app.get('/post/' + post, (req, res) => {
+  app.get('/post/' + post, (_, res) => {
     res.render('post.ejs', {
       title: formatName(post),
       data: getData(`${postFolder}/${post}`)
