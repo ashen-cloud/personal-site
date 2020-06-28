@@ -3,9 +3,7 @@
   "title": "MAIN PAGE TITLE",
   "description": "DESCRIPTION OF THIS PAGE",
   "links": [
-    ["LINK1", "URL"],
-    ["LINK2", "URL"],
-    ["LINK3", "URL"],
-    ["LINK4", "URL"]
+    ["Github", "https://github.com/ashen-cloud"],
+    ["Telegram", "https://telegram.me/ashencloud"]
   ]
 }

@@ -26,7 +26,7 @@ app.get('/', (_, res) => {
 });
 
 for (const post of posts) {
-  app.get('/post/' + post, (_, res) => {
+  app.get('/posts/' + post, (_, res) => {
     res.render('post.ejs', {
       title: formatName(post),
       data: getData(`${postFolder}/${post}`)
