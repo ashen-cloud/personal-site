@@ -1,41 +1,44 @@
 <html>
   <body>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css" />
 
-    <div class=main>
-      <div class=main_title>
+    <div class="main">
+
+      <!--  HEADER -->
+
+      <div class="main_title">
         <span>
           <%= fills.name %>
         </span>
       </div>
 
-      <div class=links>
+      <div class="links">
         <% fills.links.forEach(l => { %>
-          <a href="<%= l[1] %>">
+        <a href="<%= l[1] %>">
           <%= l[0] %>
         </a>
-        &nbsp;
-        <% }); %>
+        &nbsp; <% }); %>
       </div>
 
-    <div class="posts">
-      <ul>
-        <% posts.forEach(x => { %>
-          <li class="posts-item"><a href=/post/<%= x %>><p><%= formatName(x) %></p></a></li>
-        <% }); %>
-      </ul>
-    </div>
+      <div class="site-content">
+        <div class="content">
+          <h1><%= fills.title %></h1>
+          <p class="fills-description"><%= fills.description %></p>
 
-    <div class="info">
-      <div class="centered">
-        <h2><%= fills.title %></h2>
-        <p><%= fills.description %></p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident porro expedita explicabo eum, ducimus voluptas. Dignissimos voluptatem libero illo nobis reprehenderit animi unde modi, laudantium aliquid, assumenda error nemo totam!
+        </div>
+
+        <div class="side-bar">
+          <div class="posts-title">
+            TITLE a POSTS&nbsp;
+          </div>
+          <ul>
+            <% posts.forEach(x => { %>
+              <li class="posts-item"><a href=/post/<%= x %>><p><%= formatName(x) %></p></a></li>
+            <% }); %>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <div class="posttitle">
-      TITLE&nbsp;
-    </div>
-
   </body>
-<html>
+</html>
