@@ -1,3 +1,5 @@
+const https = require("https");
+const fs = require("fs");
 const express = require('express');
 const { getPosts, formatName, getData, getFills } = require('./loader');
 
@@ -32,6 +34,11 @@ for (const post of posts) {
   })
 }
 
-const port = 80;
-app.listen(port);
+const c = {
+  key: fs.readFileSync(process.env.P_KEYP),
+  cert: fs.readFileSync(process.env.F_CHAINP),
+};
+
+const port = 443;
+https.createServer(c, app).listen(port);
 console.log(`Working on port ${port}`);
