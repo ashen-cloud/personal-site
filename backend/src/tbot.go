@@ -2,16 +2,22 @@ package main
 
 import (
 	"database/sql"
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"io/ioutil"
 	"log"
-	"os"
-)
 
-// TODO: read token from envvar
+	"github.com/go-telegram-bot-api/telegram-bot-api"
+)
 
 func botInit(db *sql.DB) {
 
-	bot, err := tgbotapi.NewBotAPI(os.Getenv("TBOT_API_1"))
+	tokenRaw, e := ioutil.ReadFile("../../config")
+	if e != nil {
+		log.Fatal(e)
+	}
+
+	var token = string(tokenRaw)
+
+	bot, err := tgbotapi.NewBotAPI(token[:len(token)-1])
 
 	if err != nil {
 		log.Panic(err)

@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"strconv"
@@ -30,12 +31,18 @@ func main() {
 		{
 			path: "/",
 			cb: func(w http.ResponseWriter, r *http.Request) {
-				println("in root")
+				w.Header().Set("Access-Control-Allow-Origin", "*")
+				d, e := ioutil.ReadFile("../../data.json")
+				if e != nil {
+					log.Fatal(e)
+				}
+				fmt.Fprintf(w, string(d))
 			},
 		},
 		{
 			path: "/posts",
 			cb: func(w http.ResponseWriter, r *http.Request) {
+				w.Header().Set("Access-Control-Allow-Origin", "*")
 				var postSigns = getAllPostSigns(db)
 				d, err := json.Marshal(postSigns)
 				if err != nil {
@@ -47,6 +54,7 @@ func main() {
 		{
 			path: "/posts/{id}",
 			cb: func(w http.ResponseWriter, r *http.Request) {
+				w.Header().Set("Access-Control-Allow-Origin", "*")
 				var id, ok = mux.Vars(r)["id"]
 				if !ok {
 					log.Fatal("No post id")
