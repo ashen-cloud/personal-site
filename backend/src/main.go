@@ -2,13 +2,13 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"strconv"
-	"crypto/tls"
 
 	"github.com/gorilla/mux"
 )
@@ -81,11 +81,25 @@ func main() {
 
 	routeAll(ctx, router, &ROUTES)
 
-	// var cert, _ = tl
+	var cert, _ = tls.LoadX509KeyPair(
+		"/etc/letsencrypt/live/ashencloud.xyz/cert.pem",
+		"/etc/letsencrypt/live/ashencloud.xyz/privkey.pem",
+	)
 
-	log.Fatal(http.ListenAndServeTLS(PORT,
-	"/etc/letsencrypt/live/ashencloud.xyz/cert.pem",
-	"/etc/letsencrypt/live/ashencloud.xyz/privkey.pem", router))
+	var server = &http.Server{
+		Addr:    PORT,
+		Handler: router,
+		TLSConfig: &tls.Config{
+			Certificates: []tls.Certificate{cert},
+		},
+	}
+
+	log.Fatal(server.ListenAndServeTLS("", ""))
+
+	// log.Fatal(http.ListenAndServeTLS(PORT,
+	// 	,
+	// 	,
+	// 	router))
 	// log.Fatal(http.ListenAndServe(PORT, router))
 }
 
