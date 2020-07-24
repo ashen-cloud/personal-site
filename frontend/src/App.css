@@ -1,3 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  background-color: #040310;
+}
+
+.links {
+  justify-content: center;
+  display: flex;
+  font-size: 1.5em;
+  background-color: #2196f3;
+  font-family: 'Open Sans', sans-serif;
+  padding: 20px 0;
+}
+
+.links > a {
+  color: #eee;
+  margin: 0 20px;
+  position: relative;
+}
+
+.links > a::before {
+  position: absolute;
+  content: '';
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #eee;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.links > a:hover::before {
+  width: 100%;
+}
+
+.main_title span {
+  color: #fff;
+  background-color: #0d47a1;
+  font-size: 2em;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 5px;
+}
+
+.fills-description {
+  margin-bottom: 30px;
+}
+
+.posts-title {
+  color: #eee;
+  text-align: center;
+  font-size: 23px;
+  padding: 20px;
+}
+
+.info {
+  padding-top: 100px;
+  left: 0;
+  color: cyan;
+}
+
+.posts {
+  width: 600px;
+  margin: 40px auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.posts-item {
+  color: #eee;
+  background: #0a0724;
+  margin-bottom: 20px;
+  height: 40px;
+  position: relative;
+}
+
+.posts-item > a {
+  color: #eee;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  padding: 10px 20px;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.posts-item > a::before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  right: 0;
+  width: 100%;
+  height: 0;
+  background: #ff6f00;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.posts-item > a:hover::before {
+  height: 100%;
+}
+
+.posts-item > a > p {
+  position: absolute;
+  z-index: 3;
+}
+
+/* ========= POST PAGE ======== */
+
+.site-content {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Open Sans', sans-serif;
+  align-items: flex-start;
+}
+
+.content {
+  padding: 40px;
+  font-size: 1.3em;
+  color: #eee;
+  width: 100%;
+}
+
+.side-bar {
+  min-width: 300px;
+  background: #040310;
+  padding: 40px;
+}
+
+/* ============= React defaults ============ */
+
 .App {
   text-align: center;
 }
@@ -18,8 +170,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: top;
+  justify-content: top;
   font-size: calc(10px + 2vmin);
   color: white;
 }
