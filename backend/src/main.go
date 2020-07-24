@@ -82,7 +82,7 @@ func main() {
 	routeAll(ctx, router, &ROUTES)
 
 	var cert, _ = tls.LoadX509KeyPair(
-		"/etc/letsencrypt/live/ashencloud.xyz/cert.pem",
+		"/etc/letsencrypt/live/ashencloud.xyz/fullchain.pem",
 		"/etc/letsencrypt/live/ashencloud.xyz/privkey.pem",
 	)
 
