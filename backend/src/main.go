@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"crypto/tls"
 
 	"github.com/gorilla/mux"
 )
@@ -36,6 +37,7 @@ func main() {
 				if e != nil {
 					log.Fatal(e)
 				}
+				println("IN ROOT")
 				fmt.Fprintf(w, string(d))
 			},
 		},
@@ -48,6 +50,7 @@ func main() {
 				if err != nil {
 					log.Fatal(err)
 				}
+				println("IN POSTS")
 				fmt.Fprintf(w, string(d))
 			},
 		},
@@ -66,6 +69,7 @@ func main() {
 				if err != nil {
 					log.Fatal(err)
 				}
+				println("IN POST")
 				fmt.Fprintf(w, string(d))
 			},
 		},
@@ -77,7 +81,12 @@ func main() {
 
 	routeAll(ctx, router, &ROUTES)
 
-	log.Fatal(http.ListenAndServe(PORT, router))
+	// var cert, _ = tl
+
+	log.Fatal(http.ListenAndServeTLS(PORT,
+	"/etc/letsencrypt/live/ashencloud.xyz/cert.pem",
+	"/etc/letsencrypt/live/ashencloud.xyz/privkey.pem", router))
+	// log.Fatal(http.ListenAndServe(PORT, router))
 }
 
 func routeAll(ctx context.Context, router *mux.Router, routes *[]Route) {

@@ -3,7 +3,7 @@ import { get } from './api'
 // import logo from './logo.svg';
 import './App.css';
 
-const URL_BASE = "http://192.168.88.211:8080/"
+const URL_BASE = "http://ashencloud.xyz:8080/"
 
 const promisify = (fn, ...args) => {
   return new Promise(resolve => {
