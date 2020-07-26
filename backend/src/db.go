@@ -78,14 +78,17 @@ func getAllPostSigns(db *sql.DB) []PostSign {
 }
 
 func getPost(db *sql.DB, id int) Post {
-	rows, err := db.Query("select id,name from posts")
+	rows, err := db.Query("select id,name,content from posts")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for rows.Next() {
 		var p Post
-		err = rows.Scan(&p.Id, &p.Name)
+		err = rows.Scan(&p.Id, &p.Name, &p.Content)
+		if err != nil {
+			log.Fatal(err)
+		}
 		if p.Id == id {
 			return p
 		}

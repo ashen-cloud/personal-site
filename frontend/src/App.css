@@ -61,6 +61,8 @@ body {
 
 .fills-description {
   margin-bottom: 30px;
+  word-wrap: break-word;
+  width: 450px;
 }
 
 .posts-title {
@@ -127,6 +129,20 @@ body {
 }
 
 /* ========= POST PAGE ======== */
+
+.post-text {
+  color: #fff;
+  background-color: #040310;
+  font-size: 2em;
+  padding: 20px;
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  margin-right: 12%;
+  letter-spacing: 5px;
+}
+
 
 .site-content {
   display: flex;
